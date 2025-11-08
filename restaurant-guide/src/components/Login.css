@@ -1,0 +1,141 @@
+.login-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #FAFAFA;
+  padding: 20px;
+}
+
+.login-container {
+  background: white;
+  border-radius: 16px;
+  padding: 40px;
+  max-width: 440px;
+  width: 100%;
+  box-shadow: 0 4px 16px rgba(26, 26, 26, 0.08);
+  border: 1px solid #E0E0E0;
+  position: relative;
+}
+
+.back-button {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: transparent;
+  border: none;
+  color: #606060;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.95em;
+  font-weight: 500;
+  font-family: inherit;
+}
+
+.login-header {
+  text-align: center;
+  margin-bottom: 32px;
+  margin-top: 20px;
+}
+
+.login-header svg {
+  margin-bottom: 16px;
+  color: #1a1a1a;
+}
+
+.login-header h1 {
+  font-size: 1.8em;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 8px;
+  letter-spacing: -0.02em;
+}
+
+.login-header p {
+  color: #606060;
+  font-size: 1em;
+  line-height: 1.5;
+}
+
+.login-form-page {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  font-weight: 600;
+  color: #1a1a1a;
+  font-size: 0.95em;
+}
+
+.form-input {
+  padding: 14px;
+  border: 1px solid #E0E0E0;
+  border-radius: 8px;
+  font-size: 1em;
+  font-family: inherit;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: #1a1a1a;
+  box-shadow: 0 0 0 3px rgba(26, 26, 26, 0.05);
+}
+
+.login-submit-button {
+  background: #1a1a1a;
+  border: none;
+  color: #FAFAFA;
+  padding: 14px 20px;
+  font-size: 1.05em;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 8px;
+  font-family: inherit;
+  margin-top: 8px;
+}
+
+.signup-prompt {
+  margin-top: 24px;
+  text-align: center;
+  padding-top: 24px;
+  border-top: 1px solid #E8E8E8;
+}
+
+.signup-prompt p {
+  color: #606060;
+  font-size: 0.95em;
+}
+
+.signup-link {
+  background: none;
+  border: none;
+  color: #1a1a1a;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+  font-size: inherit;
+  font-family: inherit;
+  text-decoration: underline;
+}
+
+@media (max-width: 480px) {
+  .login-container {
+    padding: 30px 24px;
+  }
+
+  .login-header h1 {
+    font-size: 1.5em;
+  }
+}

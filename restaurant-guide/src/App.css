@@ -32,6 +32,12 @@ body {
   z-index: 1000;
 }
 
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .App-header h1 {
   font-size: 1.4em;
   margin-bottom: 0;
@@ -39,14 +45,153 @@ body {
   letter-spacing: -0.02em;
 }
 
-.App-header p {
-  font-size: 1.1em;
-  opacity: 0.9;
+.menu-button {
+  background: transparent;
+  border: none;
+  color: #1a1a1a;
+  padding: 8px;
+  cursor: pointer;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Drawer overlay */
+.drawer-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1100;
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Drawer */
+.drawer {
+  position: fixed;
+  top: 0;
+  right: -300px;
+  width: 300px;
+  height: 100vh;
+  background: white;
+  box-shadow: -2px 0 8px rgba(0, 0, 0, 0.1);
+  z-index: 1200;
+  transition: right 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.drawer.open {
+  right: 0;
+}
+
+.drawer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 1px solid #E0E0E0;
+}
+
+.drawer-header h2 {
+  font-size: 1.2em;
+  font-weight: 600;
+  margin: 0;
+}
+
+.close-button {
+  background: transparent;
+  border: none;
+  color: #1a1a1a;
+  padding: 8px;
+  cursor: pointer;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Auth section in drawer */
+.drawer-auth {
+  padding: 20px;
+}
+
+.user-profile {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px;
+  background: #F5F5F5;
+  border-radius: 8px;
+}
+
+.username {
+  font-weight: 600;
+  color: #1a1a1a;
+  font-size: 1em;
+}
+
+.logout-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: transparent;
+  border: 1px solid #E0E0E0;
+  color: #606060;
+  padding: 10px 16px;
+  font-size: 0.95em;
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: 8px;
+  font-family: inherit;
+}
+
+.auth-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.auth-button {
+  background: #1a1a1a;
+  border: none;
+  color: #FAFAFA;
+  padding: 12px 20px;
+  font-size: 1em;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 8px;
+  font-family: inherit;
+}
+
+.auth-button.signup {
+  background: transparent;
+  border: 1px solid #1a1a1a;
+  color: #1a1a1a;
 }
 
 main {
   flex: 1;
-  padding: 120px 0 20px 0;
+  padding: 90px 0 20px 0;
 }
 
 .App-footer {
