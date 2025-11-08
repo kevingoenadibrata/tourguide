@@ -21,6 +21,7 @@
   color: #000000;
   margin-bottom: 10px;
   font-size: 2em;
+  letter-spacing: -0.02em;
 }
 
 .restaurant-count {
@@ -57,6 +58,7 @@
   color: #000000;
   font-size: 1.3em;
   flex: 1;
+  letter-spacing: -0.02em;
 }
 
 .cuisine-badge {

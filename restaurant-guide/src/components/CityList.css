@@ -9,6 +9,7 @@
   color: #000000;
   margin-bottom: 10px;
   font-size: 2.5em;
+  letter-spacing: -0.02em;
 }
 
 .city-list-subtitle {
@@ -26,25 +27,14 @@
 }
 
 .city-card {
-  background: #000000;
+  background: white;
   border-radius: 16px;
   padding: 30px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   cursor: pointer;
-  color: white;
+  color: #000000;
   text-align: center;
-}
-
-.city-card:nth-child(2) {
-  background: #202020;
-}
-
-.city-card:nth-child(3) {
-  background: #303030;
-}
-
-.city-card:nth-child(4) {
-  background: #404040;
+  border: 1px solid #E0E0E0;
 }
 
 .city-icon {
@@ -56,6 +46,7 @@
   margin: 0 0 20px 0;
   font-size: 1.8em;
   font-weight: 600;
+  letter-spacing: -0.02em;
 }
 
 .city-stats {
@@ -64,8 +55,8 @@
   gap: 30px;
   margin-bottom: 20px;
   padding: 15px 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.3);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  border-top: 1px solid #E0E0E0;
+  border-bottom: 1px solid #E0E0E0;
 }
 
 .stat {
@@ -96,16 +87,15 @@
 }
 
 .cuisine-tag {
-  background: rgba(255, 255, 255, 0.25);
+  background: #E8E8E8;
   padding: 5px 12px;
   border-radius: 15px;
   font-size: 0.85em;
-  backdrop-filter: blur(10px);
 }
 
 .explore-city-btn {
-  background: white;
-  color: #000000;
+  background: #000000;
+  color: white;
   border: none;
   padding: 12px 24px;
   border-radius: 8px;
