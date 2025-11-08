@@ -5,8 +5,8 @@
 }
 
 .restaurant-list .back-button {
-  background: #ecf0f1;
-  color: #2c3e50;
+  background: #E8E8E8;
+  color: #000000;
   border: none;
   padding: 10px 20px;
   border-radius: 6px;
@@ -14,23 +14,18 @@
   font-size: 1em;
   font-weight: 500;
   margin-bottom: 20px;
-  transition: background 0.2s;
-}
-
-.restaurant-list .back-button:hover {
-  background: #bdc3c7;
 }
 
 .restaurant-list h2 {
   text-align: center;
-  color: #333;
+  color: #000000;
   margin-bottom: 10px;
   font-size: 2em;
 }
 
 .restaurant-count {
   text-align: center;
-  color: #666;
+  color: #606060;
   margin-bottom: 30px;
   font-size: 1.1em;
 }
@@ -48,12 +43,6 @@
   padding: 20px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   cursor: pointer;
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.restaurant-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
 }
 
 .restaurant-header {
@@ -65,13 +54,13 @@
 
 .restaurant-header h3 {
   margin: 0;
-  color: #2c3e50;
+  color: #000000;
   font-size: 1.3em;
   flex: 1;
 }
 
 .cuisine-badge {
-  background: #3498db;
+  background: #000000;
   color: white;
   padding: 4px 12px;
   border-radius: 20px;
@@ -93,18 +82,18 @@
 
 .rating-number {
   font-weight: bold;
-  color: #f39c12;
+  color: #000000;
 }
 
 .restaurant-preview {
-  color: #666;
+  color: #606060;
   line-height: 1.5;
   margin-bottom: 15px;
   font-size: 0.95em;
 }
 
 .view-details-btn {
-  background: #27ae60;
+  background: #000000;
   color: white;
   border: none;
   padding: 10px 20px;
@@ -113,9 +102,4 @@
   font-size: 0.95em;
   font-weight: 500;
   width: 100%;
-  transition: background 0.2s;
-}
-
-.view-details-btn:hover {
-  background: #229954;
 }

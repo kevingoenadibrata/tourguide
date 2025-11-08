@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
+import { Utensils, Heart } from 'lucide-react';
 import CityList from './components/CityList';
 import RestaurantList from './components/RestaurantList';
 import RestaurantDetail from './components/RestaurantDetail';
@@ -64,14 +65,14 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>🍴 Restaurant Guide</h1>
+        <h1><Utensils size={40} style={{ display: 'inline-block', verticalAlign: 'middle', marginRight: '10px' }} /> Restaurant Guide</h1>
         <p>Discover the best dining experiences around the world</p>
       </header>
 
       <main>{renderView()}</main>
 
       <footer className="App-footer">
-        <p>Made with ❤️ for food lovers</p>
+        <p>Made with <Heart size={16} style={{ display: 'inline-block', verticalAlign: 'middle', margin: '0 4px' }} /> for food lovers</p>
       </footer>
     </div>
   );

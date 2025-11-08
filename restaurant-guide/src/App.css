@@ -6,13 +6,13 @@
 
 .App {
   min-height: 100vh;
-  background: linear-gradient(to bottom, #f5f7fa 0%, #c3cfe2 100%);
+  background: #FFFFFF;
   display: flex;
   flex-direction: column;
 }
 
 .App-header {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: #000000;
   color: white;
   padding: 40px 20px;
   text-align: center;
@@ -36,7 +36,7 @@ main {
 }
 
 .App-footer {
-  background: #2c3e50;
+  background: #606060;
   color: white;
   padding: 20px;
   text-align: center;

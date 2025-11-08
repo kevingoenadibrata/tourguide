@@ -1,5 +1,6 @@
 import React from 'react';
 import './RestaurantDetail.css';
+import { ChevronLeft, Star, Utensils } from 'lucide-react';
 
 const RestaurantDetail = ({ restaurant, onBack }) => {
   if (!restaurant) return null;
@@ -10,7 +11,7 @@ const RestaurantDetail = ({ restaurant, onBack }) => {
   return (
     <div className="restaurant-detail">
       <button className="back-button" onClick={onBack}>
-        ← Back to List
+        <ChevronLeft size={16} style={{ display: 'inline-block', verticalAlign: 'middle', marginRight: '4px' }} /> Back to List
       </button>
 
       <div className="detail-container">
@@ -19,7 +20,11 @@ const RestaurantDetail = ({ restaurant, onBack }) => {
             <h1>{restaurant.name}</h1>
             <p className="detail-cuisine">{restaurant.cuisine} • {restaurant.city}</p>
             <div className="detail-rating">
-              <span className="stars">{'⭐'.repeat(Math.floor(restaurant.rating))}</span>
+              <span className="stars">
+                {[...Array(Math.floor(restaurant.rating))].map((_, i) => (
+                  <Star key={i} size={20} fill="currentColor" style={{ display: 'inline-block', marginRight: '2px' }} />
+                ))}
+              </span>
               <span className="rating-number">{restaurant.rating}/5</span>
             </div>
           </div>
@@ -55,7 +60,7 @@ const RestaurantDetail = ({ restaurant, onBack }) => {
             <ul className="menu-list">
               {restaurant.recommendedDishes.map((dish, index) => (
                 <li key={index} className="menu-item">
-                  <span className="menu-icon">🍽️</span>
+                  <span className="menu-icon"><Utensils size={20} /></span>
                   {dish}
                 </li>
               ))}
