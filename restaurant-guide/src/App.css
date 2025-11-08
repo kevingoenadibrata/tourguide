@@ -55,11 +55,6 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background 0.2s ease;
-}
-
-.menu-button:hover {
-  background: rgba(0, 0, 0, 0.05);
 }
 
 /* Drawer overlay */
@@ -126,11 +121,6 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background 0.2s ease;
-}
-
-.close-button:hover {
-  background: rgba(0, 0, 0, 0.05);
 }
 
 /* Auth section in drawer */
@@ -174,13 +164,7 @@ body {
   font-weight: 500;
   cursor: pointer;
   border-radius: 8px;
-  transition: all 0.2s ease;
   font-family: inherit;
-}
-
-.logout-button:hover {
-  background: #F5F5F5;
-  color: #1a1a1a;
 }
 
 .auth-buttons {
@@ -198,22 +182,13 @@ body {
   font-weight: 600;
   cursor: pointer;
   border-radius: 8px;
-  transition: background 0.2s ease;
   font-family: inherit;
-}
-
-.auth-button:hover {
-  background: #2a2a2a;
 }
 
 .auth-button.signup {
   background: transparent;
   border: 1px solid #1a1a1a;
   color: #1a1a1a;
-}
-
-.auth-button.signup:hover {
-  background: #F5F5F5;
 }
 
 main {
