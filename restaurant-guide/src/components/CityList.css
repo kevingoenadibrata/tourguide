@@ -33,17 +33,25 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   cursor: pointer;
   color: #000000;
-  text-align: center;
+  text-align: left;
   border: 1px solid #E0E0E0;
 }
 
+.city-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
 .city-icon {
-  font-size: 4em;
-  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .city-card h3 {
-  margin: 0 0 20px 0;
+  margin: 0;
   font-size: 1.8em;
   font-weight: 600;
   letter-spacing: -0.02em;
@@ -51,7 +59,7 @@
 
 .city-stats {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 30px;
   margin-bottom: 20px;
   padding: 15px 0;
@@ -81,7 +89,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  justify-content: center;
+  justify-content: flex-start;
   margin-bottom: 20px;
   min-height: 32px;
 }

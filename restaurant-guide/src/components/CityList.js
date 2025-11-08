@@ -8,10 +8,10 @@ const CityList = ({ onSelectCity }) => {
 
   // City icon mapping
   const cityIcons = {
-    'San Francisco': <Building2 size={64} />,
-    'New York': <Landmark size={64} />,
-    'Tokyo': <Building2 size={64} />,
-    'Paris': <Landmark size={64} />
+    'San Francisco': <Building2 size={32} />,
+    'New York': <Landmark size={32} />,
+    'Tokyo': <Building2 size={32} />,
+    'Paris': <Landmark size={32} />
   };
 
   return (
@@ -26,10 +26,12 @@ const CityList = ({ onSelectCity }) => {
             className="city-card"
             onClick={() => onSelectCity(city.name)}
           >
-            <div className="city-icon">
-              {cityIcons[city.name] || <MapPin size={64} />}
+            <div className="city-header">
+              <div className="city-icon">
+                {cityIcons[city.name] || <MapPin size={32} />}
+              </div>
+              <h3>{city.name}</h3>
             </div>
-            <h3>{city.name}</h3>
             <div className="city-stats">
               <div className="stat">
                 <span className="stat-value">{city.restaurantCount}</span>
