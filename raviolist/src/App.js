@@ -1,11 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, useNavigate, useLocation } from 'react-router-dom';
 import './App.css';
-import { Heart, Menu, X, User, LogOut } from 'lucide-react';
+import { Heart, Menu, X, User, LogOut, CircleUserRound, Home, LayoutList } from 'lucide-react';
 import Community from './components/Community';
 import RestaurantList from './components/RestaurantList';
 import RestaurantDetail from './components/RestaurantDetail';
 import Login from './components/Login';
+import MyLists from './components/MyLists';
 
 function AppLayout() {
   const navigate = useNavigate();
@@ -13,17 +14,46 @@ function AppLayout() {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [user, setUser] = useState(null);
 
+  // Load username from localStorage on component mount
+  useEffect(() => {
+    const savedUsername = localStorage.getItem('raviolist_username');
+    if (savedUsername) {
+      setUser(savedUsername);
+    }
+  }, []);
+
+  // Prevent body scroll when drawer is open
+  useEffect(() => {
+    if (isDrawerOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+
+    // Cleanup on unmount
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isDrawerOpen]);
+
   const handleLogin = (username) => {
     setUser(username);
+    localStorage.setItem('raviolist_username', username);
     navigate('/');
   };
 
   const handleLogout = () => {
     setUser(null);
+    localStorage.removeItem('raviolist_username');
   };
 
   const handleNavigateToLogin = () => {
     navigate('/login');
+    setIsDrawerOpen(false);
+  };
+
+  const handleNavigate = (path) => {
+    navigate(path);
     setIsDrawerOpen(false);
   };
 
@@ -35,9 +65,9 @@ function AppLayout() {
         <>
           <header className="App-header">
             <div className="header-content">
-              <h1><img src="/ravioli.png" alt="ravioli" style={{ width: '28px', height: '28px', display: 'inline-block', verticalAlign: 'middle', marginRight: '5px' }} /> raviolist</h1>
+              <h1 onClick={() => navigate('/')} style={{ cursor: 'pointer', display: 'flex', alignItems: 'center' }}><img src="/ravioli.png" alt="ravioli" style={{ width: '28px', height: '28px', marginRight: '5px' }} /> Raviolist</h1>
               <button className="menu-button" onClick={() => setIsDrawerOpen(!isDrawerOpen)}>
-                <Menu size={24} />
+                {user ? <CircleUserRound size={24} /> : <Menu size={24} />}
               </button>
             </div>
           </header>
@@ -55,6 +85,21 @@ function AppLayout() {
                 <X size={24} />
               </button>
             </div>
+
+            {/* Navigation links - shown only when logged in */}
+            {user && (
+              <nav className="drawer-nav">
+                <button className="nav-item" onClick={() => handleNavigate('/')}>
+                  <Home size={20} />
+                  <span>Home</span>
+                </button>
+                <button className="nav-item" onClick={() => handleNavigate('/my-lists')}>
+                  <LayoutList size={20} />
+                  <span>My Lists</span>
+                </button>
+              </nav>
+            )}
+
             {/* Login/User section */}
             <div className="drawer-auth">
               {user ? (
@@ -91,6 +136,10 @@ function AppLayout() {
           <Route path="/list/:id" element={<RestaurantList />} />
           <Route path="/list/:listId/details/:restaurantId" element={<RestaurantDetail />} />
           <Route path="/login" element={<Login onLogin={handleLogin} />} />
+          <Route
+            path="/my-lists"
+            element={user ? <MyLists /> : <Login onLogin={handleLogin} />}
+          />
         </Routes>
       </main>
 

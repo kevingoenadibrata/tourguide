@@ -38,11 +38,11 @@
 }
 
 .list-header {
-  margin-bottom: 12px;
+  margin-bottom: 8px;
 }
 
 .list-header h3 {
-  margin: 0 0 6px 0;
+  margin: 0 0 4px 0;
   font-size: 1.5em;
   font-weight: 600;
   color: #1a1a1a;
@@ -52,12 +52,11 @@
 .creator {
   color: #606060;
   font-size: 0.95em;
-  font-style: italic;
 }
 
 .list-description {
   color: #2a2a2a;
-  margin: 12px 0 16px 0;
+  margin: 0 0 16px 0;
   line-height: 1.5;
   font-size: 0.95em;
 }
@@ -79,4 +78,60 @@
 
 .list-stat svg {
   flex-shrink: 0;
+}
+
+/* Create list button */
+.create-list-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: #1a1a1a;
+  border: none;
+  color: #FAFAFA;
+  padding: 12px 20px;
+  font-size: 1em;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 8px;
+  font-family: inherit;
+  margin-bottom: 20px;
+  transition: background 0.2s ease;
+}
+
+.create-list-button:hover {
+  background: #2a2a2a;
+}
+
+/* Empty state */
+.empty-state {
+  text-align: center;
+  padding: 60px 20px;
+  color: #606060;
+}
+
+.empty-state p {
+  font-size: 1.1em;
+  margin-bottom: 20px;
+}
+
+.create-list-button-inline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: #1a1a1a;
+  border: none;
+  color: #FAFAFA;
+  padding: 12px 20px;
+  font-size: 1em;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 8px;
+  font-family: inherit;
+  transition: background 0.2s ease;
+}
+
+.create-list-button-inline:hover {
+  background: #2a2a2a;
 }
