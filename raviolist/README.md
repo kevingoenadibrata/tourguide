@@ -24,7 +24,7 @@ A React-based restaurant recommendation app that displays a curated list of rest
 
 1. Navigate to the project directory:
 ```bash
-cd restaurant-guide
+cd raviolist
 ```
 
 2. Install dependencies:
@@ -49,7 +49,7 @@ The app will open in your browser at [http://localhost:3000](http://localhost:30
 ## Project Structure
 
 ```
-restaurant-guide/
+raviolist/
 ├── src/
 │   ├── components/
 │   │   ├── RestaurantList.js      # Restaurant grid/list component
