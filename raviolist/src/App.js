@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, useNavigate, useLocation } from 'react-router-dom';
 import './App.css';
 import { Heart, Menu, X, User, LogOut, CircleUserRound, Home, ListOrdered } from 'lucide-react';
@@ -14,13 +14,23 @@ function AppLayout() {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [user, setUser] = useState(null);
 
+  // Load username from localStorage on component mount
+  useEffect(() => {
+    const savedUsername = localStorage.getItem('raviolist_username');
+    if (savedUsername) {
+      setUser(savedUsername);
+    }
+  }, []);
+
   const handleLogin = (username) => {
     setUser(username);
+    localStorage.setItem('raviolist_username', username);
     navigate('/');
   };
 
   const handleLogout = () => {
     setUser(null);
+    localStorage.removeItem('raviolist_username');
   };
 
   const handleNavigateToLogin = () => {
