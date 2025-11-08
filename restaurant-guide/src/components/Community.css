@@ -5,20 +5,20 @@
 }
 
 .community-header {
-  text-align: center;
+  text-align: left;
   margin-bottom: 40px;
 }
 
 .community-header h2 {
   color: #1a1a1a;
   margin-bottom: 10px;
-  font-size: 2.5em;
+  font-size: 1.8em;
   letter-spacing: -0.02em;
 }
 
 .community-subtitle {
   color: #606060;
-  font-size: 1.1em;
+  font-size: 0.95em;
 }
 
 .community-lists {
