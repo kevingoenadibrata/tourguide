@@ -17,6 +17,8 @@ function App() {
   const [currentView, setCurrentView] = useState('cities');
   const [selectedCity, setSelectedCity] = useState(null);
   const [selectedRestaurant, setSelectedRestaurant] = useState(null);
+  // Community list state
+  const [selectedCommunityList, setSelectedCommunityList] = useState(null);
   // User authentication state
   const [user, setUser] = useState(null);
   const [showLoginPage, setShowLoginPage] = useState(false);
@@ -66,6 +68,15 @@ function App() {
     setCurrentView('restaurants');
   };
 
+  const handleSelectCommunityList = (list) => {
+    setSelectedCommunityList(list);
+  };
+
+  const handleBackToCommunity = () => {
+    setSelectedCommunityList(null);
+    setSelectedRestaurant(null);
+  };
+
   // Render the appropriate view based on currentTab and currentView state
   const renderView = () => {
     // If on Login page, show Login
@@ -73,9 +84,32 @@ function App() {
       return <Login onLogin={handleLogin} onBack={handleBackFromLogin} />;
     }
 
-    // If on Community tab, show Community page
+    // If on Community tab
     if (currentTab === 'community') {
-      return <Community />;
+      // Show restaurant detail if a restaurant is selected from a community list
+      if (selectedRestaurant) {
+        return (
+          <RestaurantDetail
+            restaurant={selectedRestaurant}
+            onBack={handleBackToCommunity}
+          />
+        );
+      }
+
+      // Show community list restaurants if a list is selected
+      if (selectedCommunityList) {
+        return (
+          <RestaurantList
+            city={selectedCommunityList.title}
+            restaurants={selectedCommunityList.restaurants}
+            onSelectRestaurant={handleSelectRestaurant}
+            onBack={handleBackToCommunity}
+          />
+        );
+      }
+
+      // Show Community page by default
+      return <Community onSelectList={handleSelectCommunityList} />;
     }
 
     // Otherwise show Recommendations flow (cities -> restaurants -> detail)
