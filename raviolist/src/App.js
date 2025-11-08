@@ -65,7 +65,7 @@ function AppLayout() {
         <>
           <header className="App-header">
             <div className="header-content">
-              <h1 onClick={() => navigate('/')} style={{ cursor: 'pointer' }}><img src="/ravioli.png" alt="ravioli" style={{ width: '28px', height: '28px', display: 'inline-block', verticalAlign: 'middle', marginRight: '5px' }} /> Raviolist</h1>
+              <h1 onClick={() => navigate('/')} style={{ cursor: 'pointer', display: 'flex', alignItems: 'center' }}><img src="/ravioli.png" alt="ravioli" style={{ width: '28px', height: '28px', marginRight: '5px' }} /> Raviolist</h1>
               <button className="menu-button" onClick={() => setIsDrawerOpen(!isDrawerOpen)}>
                 {user ? <CircleUserRound size={24} /> : <Menu size={24} />}
               </button>
