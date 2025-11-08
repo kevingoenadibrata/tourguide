@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
-import { Croissant, Heart } from 'lucide-react';
+import { Croissant, Heart, Menu, X } from 'lucide-react';
 import CityList from './components/CityList';
 import RestaurantList from './components/RestaurantList';
 import RestaurantDetail from './components/RestaurantDetail';
@@ -9,10 +9,17 @@ import { getRestaurantsByCity } from './data/restaurants';
 function App() {
   // Tab state: 'recommendations' or 'community'
   const [currentTab, setCurrentTab] = useState('recommendations');
+  // Drawer state
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   // Navigation state: 'cities', 'restaurants', or 'detail'
   const [currentView, setCurrentView] = useState('cities');
   const [selectedCity, setSelectedCity] = useState(null);
   const [selectedRestaurant, setSelectedRestaurant] = useState(null);
+
+  const handleTabSelect = (tab) => {
+    setCurrentTab(tab);
+    setIsDrawerOpen(false);
+  };
 
   const handleSelectCity = (cityName) => {
     setSelectedCity(cityName);
@@ -67,22 +74,42 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1><Croissant size={28} style={{ display: 'inline-block', verticalAlign: 'middle', marginRight: '10px' }} /> tourguideman</h1>
-        <div className="tabs">
+        <div className="header-content">
+          <h1><Croissant size={28} style={{ display: 'inline-block', verticalAlign: 'middle', marginRight: '10px' }} /> tourguideman</h1>
+          <button className="menu-button" onClick={() => setIsDrawerOpen(!isDrawerOpen)}>
+            <Menu size={24} />
+          </button>
+        </div>
+      </header>
+
+      {/* Drawer overlay */}
+      {isDrawerOpen && (
+        <div className="drawer-overlay" onClick={() => setIsDrawerOpen(false)} />
+      )}
+
+      {/* Drawer */}
+      <div className={`drawer ${isDrawerOpen ? 'open' : ''}`}>
+        <div className="drawer-header">
+          <h2>Menu</h2>
+          <button className="close-button" onClick={() => setIsDrawerOpen(false)}>
+            <X size={24} />
+          </button>
+        </div>
+        <div className="drawer-content">
           <button
-            className={`tab ${currentTab === 'recommendations' ? 'active' : ''}`}
-            onClick={() => setCurrentTab('recommendations')}
+            className={`drawer-tab ${currentTab === 'recommendations' ? 'active' : ''}`}
+            onClick={() => handleTabSelect('recommendations')}
           >
             Recommendations
           </button>
           <button
-            className={`tab ${currentTab === 'community' ? 'active' : ''}`}
-            onClick={() => setCurrentTab('community')}
+            className={`drawer-tab ${currentTab === 'community' ? 'active' : ''}`}
+            onClick={() => handleTabSelect('community')}
           >
             Community
           </button>
         </div>
-      </header>
+      </div>
 
       <main>{renderView()}</main>
 
