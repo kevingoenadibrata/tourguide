@@ -4,6 +4,41 @@
   margin: 0 auto;
 }
 
+.hero-section {
+  text-align: left;
+  margin-bottom: 60px;
+}
+
+.hero-title {
+  color: #1a1a1a;
+  font-size: 2em;
+  font-weight: 700;
+  margin-bottom: 20px;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.rotating-text {
+  color: #FF6B35;
+  display: inline-block;
+  min-width: 200px;
+  text-align: left;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+
+.rotating-text.fading {
+  opacity: 0;
+}
+
+.hero-description {
+  color: #606060;
+  font-size: 1.1em;
+  line-height: 1.4;
+  max-width: 700px;
+  margin: 0;
+}
+
 .community-header {
   text-align: left;
   margin-bottom: 40px;
