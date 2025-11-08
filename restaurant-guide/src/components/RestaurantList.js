@@ -1,23 +1,46 @@
 import React from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
 import './RestaurantList.css';
 import { ChevronLeft, Star } from 'lucide-react';
+import { communityLists } from '../data/communityLists';
 
-const RestaurantList = ({ city, restaurants, onSelectRestaurant, onBack }) => {
+const RestaurantList = () => {
+  const { id } = useParams();
+  const navigate = useNavigate();
+
+  // Find the list by ID
+  const list = communityLists.find(l => l.id === parseInt(id));
+
+  if (!list) {
+    return (
+      <div className="restaurant-list">
+        <button className="back-button" onClick={() => navigate('/')}>
+          <ChevronLeft size={16} style={{ display: 'inline-block', verticalAlign: 'middle', marginRight: '4px' }} /> Back to Community
+        </button>
+        <h2>List not found</h2>
+      </div>
+    );
+  }
+
+  const handleSelectRestaurant = (restaurantId) => {
+    navigate(`/list/${id}/details/${restaurantId}`);
+  };
+
   return (
     <div className="restaurant-list">
-      <button className="back-button" onClick={onBack}>
-        <ChevronLeft size={16} style={{ display: 'inline-block', verticalAlign: 'middle', marginRight: '4px' }} /> Back to Cities
+      <button className="back-button" onClick={() => navigate('/')}>
+        <ChevronLeft size={16} style={{ display: 'inline-block', verticalAlign: 'middle', marginRight: '4px' }} /> Back to Community
       </button>
 
-      <h2>Restaurants in {city}</h2>
-      <p className="restaurant-count">{restaurants.length} amazing restaurants to explore</p>
+      <h2>{list.title}</h2>
+      <p className="restaurant-count">{list.restaurants.length} amazing restaurants to explore</p>
 
       <div className="restaurant-grid">
-        {restaurants.map((restaurant) => (
+        {list.restaurants.map((restaurant) => (
           <div
             key={restaurant.id}
             className="restaurant-card"
-            onClick={() => onSelectRestaurant(restaurant)}
+            onClick={() => handleSelectRestaurant(restaurant.id)}
           >
             <div className="restaurant-header">
               <h3>{restaurant.name}</h3>

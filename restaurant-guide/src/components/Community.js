@@ -1,9 +1,15 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Community.css';
 import { Users, ListOrdered, MapPin } from 'lucide-react';
 import { communityLists } from '../data/communityLists';
 
-const Community = ({ onSelectList }) => {
+const Community = () => {
+  const navigate = useNavigate();
+
+  const handleSelectList = (listId) => {
+    navigate(`/list/${listId}`);
+  };
 
   return (
     <div className="community-page">
@@ -17,7 +23,7 @@ const Community = ({ onSelectList }) => {
           <div
             key={list.id}
             className="community-list-card"
-            onClick={() => onSelectList(list)}
+            onClick={() => handleSelectList(list.id)}
           >
             <div className="list-header">
               <h3>{list.title}</h3>

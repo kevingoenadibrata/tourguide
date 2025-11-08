@@ -1,16 +1,36 @@
 import React from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
 import './RestaurantDetail.css';
 import { ChevronLeft, Star, Utensils } from 'lucide-react';
+import { communityLists } from '../data/communityLists';
 
-const RestaurantDetail = ({ restaurant, onBack }) => {
-  if (!restaurant) return null;
+const RestaurantDetail = () => {
+  const { listId, restaurantId } = useParams();
+  const navigate = useNavigate();
+
+  // Find the list by ID
+  const list = communityLists.find(l => l.id === parseInt(listId));
+
+  // Find the restaurant within the list
+  const restaurant = list?.restaurants.find(r => r.id === parseInt(restaurantId));
+
+  if (!restaurant) {
+    return (
+      <div className="restaurant-detail">
+        <button className="back-button" onClick={() => navigate(`/list/${listId}`)}>
+          <ChevronLeft size={16} style={{ display: 'inline-block', verticalAlign: 'middle', marginRight: '4px' }} /> Back to List
+        </button>
+        <h2>Restaurant not found</h2>
+      </div>
+    );
+  }
 
   // Use address-based embed (works without API key)
   const addressMapUrl = `https://maps.google.com/maps?q=${encodeURIComponent(restaurant.address)}&output=embed`;
 
   return (
     <div className="restaurant-detail">
-      <button className="back-button" onClick={onBack}>
+      <button className="back-button" onClick={() => navigate(`/list/${listId}`)}>
         <ChevronLeft size={16} style={{ display: 'inline-block', verticalAlign: 'middle', marginRight: '4px' }} /> Back to List
       </button>
 

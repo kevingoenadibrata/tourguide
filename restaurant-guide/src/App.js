@@ -1,37 +1,21 @@
 import React, { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route, useNavigate, useLocation } from 'react-router-dom';
 import './App.css';
 import { Croissant, Heart, Menu, X, User, LogOut } from 'lucide-react';
-import CityList from './components/CityList';
+import Community from './components/Community';
 import RestaurantList from './components/RestaurantList';
 import RestaurantDetail from './components/RestaurantDetail';
-import Community from './components/Community';
 import Login from './components/Login';
-import { getRestaurantsByCity } from './data/restaurants';
 
-function App() {
-  // Tab state: 'recommendations' or 'community'
-  const [currentTab, setCurrentTab] = useState('community');
-  // Drawer state
+function AppLayout() {
+  const navigate = useNavigate();
+  const location = useLocation();
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
-  // Navigation state: 'cities', 'restaurants', or 'detail'
-  const [currentView, setCurrentView] = useState('cities');
-  const [selectedCity, setSelectedCity] = useState(null);
-  const [selectedRestaurant, setSelectedRestaurant] = useState(null);
-  // Community list state
-  const [selectedCommunityList, setSelectedCommunityList] = useState(null);
-  // User authentication state
   const [user, setUser] = useState(null);
-  const [showLoginPage, setShowLoginPage] = useState(false);
-
-  const handleTabSelect = (tab) => {
-    setCurrentTab(tab);
-    setIsDrawerOpen(false);
-  };
 
   const handleLogin = (username) => {
-    // Mock authentication - accept any username
     setUser(username);
-    setShowLoginPage(false);
+    navigate('/');
   };
 
   const handleLogout = () => {
@@ -39,110 +23,15 @@ function App() {
   };
 
   const handleNavigateToLogin = () => {
-    setShowLoginPage(true);
+    navigate('/login');
     setIsDrawerOpen(false);
   };
 
-  const handleBackFromLogin = () => {
-    setShowLoginPage(false);
-  };
-
-  const handleSelectCity = (cityName) => {
-    setSelectedCity(cityName);
-    setCurrentView('restaurants');
-  };
-
-  const handleSelectRestaurant = (restaurant) => {
-    setSelectedRestaurant(restaurant);
-    setCurrentView('detail');
-  };
-
-  const handleBackToCities = () => {
-    setSelectedCity(null);
-    setSelectedRestaurant(null);
-    setCurrentView('cities');
-  };
-
-  const handleBackToRestaurants = () => {
-    setSelectedRestaurant(null);
-    setCurrentView('restaurants');
-  };
-
-  const handleSelectCommunityList = (list) => {
-    setSelectedCommunityList(list);
-  };
-
-  const handleBackToCommunity = () => {
-    setSelectedCommunityList(null);
-    setSelectedRestaurant(null);
-  };
-
-  // Render the appropriate view based on currentTab and currentView state
-  const renderView = () => {
-    // If on Login page, show Login
-    if (showLoginPage) {
-      return <Login onLogin={handleLogin} onBack={handleBackFromLogin} />;
-    }
-
-    // If on Community tab
-    if (currentTab === 'community') {
-      // Show restaurant detail if a restaurant is selected from a community list
-      if (selectedRestaurant) {
-        return (
-          <RestaurantDetail
-            restaurant={selectedRestaurant}
-            onBack={handleBackToCommunity}
-          />
-        );
-      }
-
-      // Show community list restaurants if a list is selected
-      if (selectedCommunityList) {
-        return (
-          <RestaurantList
-            city={selectedCommunityList.title}
-            restaurants={selectedCommunityList.restaurants}
-            onSelectRestaurant={handleSelectRestaurant}
-            onBack={handleBackToCommunity}
-          />
-        );
-      }
-
-      // Show Community page by default
-      return <Community onSelectList={handleSelectCommunityList} />;
-    }
-
-    // Otherwise show Recommendations flow (cities -> restaurants -> detail)
-    switch (currentView) {
-      case 'cities':
-        return <CityList onSelectCity={handleSelectCity} />;
-
-      case 'restaurants':
-        return (
-          <RestaurantList
-            city={selectedCity}
-            restaurants={getRestaurantsByCity(selectedCity)}
-            onSelectRestaurant={handleSelectRestaurant}
-            onBack={handleBackToCities}
-          />
-        );
-
-      case 'detail':
-        return (
-          <RestaurantDetail
-            restaurant={selectedRestaurant}
-            onBack={handleBackToRestaurants}
-          />
-        );
-
-      default:
-        return <CityList onSelectCity={handleSelectCity} />;
-    }
-  };
+  const isLoginPage = location.pathname === '/login';
 
   return (
     <div className="App">
-      {!showLoginPage && (
+      {!isLoginPage && (
         <>
           <header className="App-header">
             <div className="header-content">
@@ -196,14 +85,29 @@ function App() {
         </>
       )}
 
-      <main>{renderView()}</main>
+      <main>
+        <Routes>
+          <Route path="/" element={<Community />} />
+          <Route path="/list/:id" element={<RestaurantList />} />
+          <Route path="/list/:listId/details/:restaurantId" element={<RestaurantDetail />} />
+          <Route path="/login" element={<Login onLogin={handleLogin} />} />
+        </Routes>
+      </main>
 
-      {!showLoginPage && (
+      {!isLoginPage && (
         <footer className="App-footer">
           <p>Made with <Heart size={16} style={{ display: 'inline-block', verticalAlign: 'middle', margin: '0 4px' }} /> for food lovers</p>
         </footer>
       )}
     </div>
+  );
+}
+
+function App() {
+  return (
+    <Router>
+      <AppLayout />
+    </Router>
   );
 }
 
