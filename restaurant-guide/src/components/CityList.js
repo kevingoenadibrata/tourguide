@@ -35,11 +35,11 @@ const CityList = ({ onSelectCity }) => {
             <div className="city-stats">
               <div className="stat">
                 <span className="stat-value">{city.restaurantCount}</span>
-                <Utensils size={20} />
+                <Utensils size={16} />
               </div>
               <div className="stat">
                 <span className="stat-value">{city.avgRating}</span>
-                <Star size={20} />
+                <Star size={16} />
               </div>
             </div>
             <div className="city-cuisines">
