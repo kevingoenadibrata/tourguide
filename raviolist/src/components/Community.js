@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Community.css';
-import { ListOrdered, MapPin } from 'lucide-react';
+import { LayoutList, MapPin } from 'lucide-react';
 import { communityLists } from '../data/communityLists';
 
 const Community = () => {
@@ -32,7 +32,7 @@ const Community = () => {
             <p className="list-description">{list.description}</p>
             <div className="list-footer">
               <div className="list-stat">
-                <ListOrdered size={16} />
+                <LayoutList size={16} />
                 <span>{list.restaurants.length} restaurants</span>
               </div>
               <div className="list-stat">

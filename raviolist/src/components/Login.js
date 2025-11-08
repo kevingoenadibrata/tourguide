@@ -26,7 +26,7 @@ const Login = ({ onLogin }) => {
 
         <div className="login-header">
           <Croissant size={48} />
-          <h1>Welcome to raviolist</h1>
+          <h1>Welcome to Raviolist</h1>
           <p>Sign in to save your favorite restaurants and create lists</p>
         </div>
 

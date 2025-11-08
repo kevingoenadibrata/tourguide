@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, useNavigate, useLocation } from 'react-router-dom';
 import './App.css';
-import { Heart, Menu, X, User, LogOut, CircleUserRound, Home, ListOrdered } from 'lucide-react';
+import { Heart, Menu, X, User, LogOut, CircleUserRound, Home, LayoutList } from 'lucide-react';
 import Community from './components/Community';
 import RestaurantList from './components/RestaurantList';
 import RestaurantDetail from './components/RestaurantDetail';
@@ -65,7 +65,7 @@ function AppLayout() {
         <>
           <header className="App-header">
             <div className="header-content">
-              <h1 onClick={() => navigate('/')} style={{ cursor: 'pointer' }}><img src="/ravioli.png" alt="ravioli" style={{ width: '28px', height: '28px', display: 'inline-block', verticalAlign: 'middle', marginRight: '5px' }} /> raviolist</h1>
+              <h1 onClick={() => navigate('/')} style={{ cursor: 'pointer' }}><img src="/ravioli.png" alt="ravioli" style={{ width: '28px', height: '28px', display: 'inline-block', verticalAlign: 'middle', marginRight: '5px' }} /> Raviolist</h1>
               <button className="menu-button" onClick={() => setIsDrawerOpen(!isDrawerOpen)}>
                 {user ? <CircleUserRound size={24} /> : <Menu size={24} />}
               </button>
@@ -94,7 +94,7 @@ function AppLayout() {
                   <span>Home</span>
                 </button>
                 <button className="nav-item" onClick={() => handleNavigate('/my-lists')}>
-                  <ListOrdered size={20} />
+                  <LayoutList size={20} />
                   <span>My Lists</span>
                 </button>
               </nav>
