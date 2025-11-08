@@ -6,14 +6,14 @@
 
 .city-list h2 {
   text-align: center;
-  color: #333;
+  color: #000000;
   margin-bottom: 10px;
   font-size: 2.5em;
 }
 
 .city-list-subtitle {
   text-align: center;
-  color: #666;
+  color: #606060;
   margin-bottom: 40px;
   font-size: 1.1em;
 }
@@ -26,31 +26,25 @@
 }
 
 .city-card {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: #000000;
   border-radius: 16px;
   padding: 30px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   cursor: pointer;
-  transition: transform 0.3s, box-shadow 0.3s;
   color: white;
   text-align: center;
 }
 
 .city-card:nth-child(2) {
-  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  background: #202020;
 }
 
 .city-card:nth-child(3) {
-  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  background: #303030;
 }
 
 .city-card:nth-child(4) {
-  background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
-}
-
-.city-card:hover {
-  transform: translateY(-8px) scale(1.02);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  background: #404040;
 }
 
 .city-icon {
@@ -111,7 +105,7 @@
 
 .explore-city-btn {
   background: white;
-  color: #667eea;
+  color: #000000;
   border: none;
   padding: 12px 24px;
   border-radius: 8px;
@@ -119,22 +113,4 @@
   font-size: 1em;
   font-weight: 600;
   width: 100%;
-  transition: all 0.2s;
-}
-
-.city-card:nth-child(2) .explore-city-btn {
-  color: #f5576c;
-}
-
-.city-card:nth-child(3) .explore-city-btn {
-  color: #00f2fe;
-}
-
-.city-card:nth-child(4) .explore-city-btn {
-  color: #38f9d7;
-}
-
-.explore-city-btn:hover {
-  transform: scale(1.05);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }

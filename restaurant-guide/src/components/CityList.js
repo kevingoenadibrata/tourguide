@@ -1,16 +1,17 @@
 import React from 'react';
 import './CityList.css';
+import { Building2, Landmark, MapPin, ChevronRight } from 'lucide-react';
 import { getCityStats } from '../data/restaurants';
 
 const CityList = ({ onSelectCity }) => {
   const cities = getCityStats();
 
-  // City emoji mapping
-  const cityEmojis = {
-    'San Francisco': '🌉',
-    'New York': '🗽',
-    'Tokyo': '🗼',
-    'Paris': '🗼'
+  // City icon mapping
+  const cityIcons = {
+    'San Francisco': <Building2 size={64} />,
+    'New York': <Landmark size={64} />,
+    'Tokyo': <Building2 size={64} />,
+    'Paris': <Landmark size={64} />
   };
 
   return (
@@ -26,7 +27,7 @@ const CityList = ({ onSelectCity }) => {
             onClick={() => onSelectCity(city.name)}
           >
             <div className="city-icon">
-              {cityEmojis[city.name] || '🌆'}
+              {cityIcons[city.name] || <MapPin size={64} />}
             </div>
             <h3>{city.name}</h3>
             <div className="city-stats">
@@ -46,7 +47,7 @@ const CityList = ({ onSelectCity }) => {
                 </span>
               ))}
             </div>
-            <button className="explore-city-btn">Explore {city.name} →</button>
+            <button className="explore-city-btn">Explore {city.name} <ChevronRight size={16} style={{ display: 'inline-block', verticalAlign: 'middle', marginLeft: '4px' }} /></button>
           </div>
         ))}
       </div>
