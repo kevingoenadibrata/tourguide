@@ -35,7 +35,7 @@ function AppLayout() {
         <>
           <header className="App-header">
             <div className="header-content">
-              <h1><img src="/ravioli.png" alt="ravioli" style={{ width: '28px', height: '28px', display: 'inline-block', verticalAlign: 'middle', marginRight: '10px' }} /> raviolist</h1>
+              <h1><img src="/ravioli.png" alt="ravioli" style={{ width: '28px', height: '28px', display: 'inline-block', verticalAlign: 'middle', marginRight: '5px' }} /> raviolist</h1>
               <button className="menu-button" onClick={() => setIsDrawerOpen(!isDrawerOpen)}>
                 <Menu size={24} />
               </button>
