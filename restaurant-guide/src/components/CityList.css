@@ -6,7 +6,7 @@
 
 .city-list h2 {
   text-align: center;
-  color: #000000;
+  color: #1a1a1a;
   margin-bottom: 10px;
   font-size: 2.5em;
   letter-spacing: -0.02em;
@@ -30,9 +30,9 @@
   background: white;
   border-radius: 16px;
   padding: 20px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 2px 8px rgba(26, 26, 26, 0.08);
   cursor: pointer;
-  color: #000000;
+  color: #1a1a1a;
   text-align: left;
   border: 1px solid #E0E0E0;
 }

@@ -6,7 +6,7 @@
 
 .restaurant-list .back-button {
   background: none;
-  color: #000000;
+  color: #1a1a1a;
   border: none;
   padding: 10px 0;
   cursor: pointer;
@@ -17,7 +17,7 @@
 
 .restaurant-list h2 {
   text-align: center;
-  color: #000000;
+  color: #1a1a1a;
   margin-bottom: 10px;
   font-size: 2em;
   letter-spacing: -0.02em;
@@ -41,7 +41,7 @@
   background: white;
   border-radius: 12px;
   padding: 20px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px rgba(26, 26, 26, 0.1);
   cursor: pointer;
 }
 
@@ -54,14 +54,14 @@
 
 .restaurant-header h3 {
   margin: 0;
-  color: #000000;
+  color: #1a1a1a;
   font-size: 1.3em;
   flex: 1;
   letter-spacing: -0.02em;
 }
 
 .cuisine-badge {
-  background: #000000;
+  background: #1a1a1a;
   color: white;
   padding: 4px 12px;
   border-radius: 20px;
@@ -83,7 +83,7 @@
 
 .rating-number {
   font-weight: bold;
-  color: #000000;
+  color: #1a1a1a;
 }
 
 .restaurant-preview {
