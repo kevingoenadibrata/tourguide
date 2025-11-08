@@ -17,11 +17,10 @@
 }
 
 .back-button {
-  background: #808080;
-  color: white;
+  background: none;
+  color: #000000;
   border: none;
-  padding: 12px 24px;
-  border-radius: 6px;
+  padding: 10px 0;
   cursor: pointer;
   font-size: 1em;
   font-weight: 500;

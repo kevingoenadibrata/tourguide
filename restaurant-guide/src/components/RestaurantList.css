@@ -5,11 +5,10 @@
 }
 
 .restaurant-list .back-button {
-  background: #E8E8E8;
+  background: none;
   color: #000000;
   border: none;
-  padding: 10px 20px;
-  border-radius: 6px;
+  padding: 10px 0;
   cursor: pointer;
   font-size: 1em;
   font-weight: 500;
