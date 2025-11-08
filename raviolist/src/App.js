@@ -22,6 +22,20 @@ function AppLayout() {
     }
   }, []);
 
+  // Prevent body scroll when drawer is open
+  useEffect(() => {
+    if (isDrawerOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+
+    // Cleanup on unmount
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isDrawerOpen]);
+
   const handleLogin = (username) => {
     setUser(username);
     localStorage.setItem('raviolist_username', username);
