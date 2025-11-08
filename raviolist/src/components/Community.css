@@ -80,3 +80,59 @@
 .list-stat svg {
   flex-shrink: 0;
 }
+
+/* Create list button */
+.create-list-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: #1a1a1a;
+  border: none;
+  color: #FAFAFA;
+  padding: 12px 20px;
+  font-size: 1em;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 8px;
+  font-family: inherit;
+  margin-bottom: 20px;
+  transition: background 0.2s ease;
+}
+
+.create-list-button:hover {
+  background: #2a2a2a;
+}
+
+/* Empty state */
+.empty-state {
+  text-align: center;
+  padding: 60px 20px;
+  color: #606060;
+}
+
+.empty-state p {
+  font-size: 1.1em;
+  margin-bottom: 20px;
+}
+
+.create-list-button-inline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: #1a1a1a;
+  border: none;
+  color: #FAFAFA;
+  padding: 12px 20px;
+  font-size: 1em;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 8px;
+  font-family: inherit;
+  transition: background 0.2s ease;
+}
+
+.create-list-button-inline:hover {
+  background: #2a2a2a;
+}

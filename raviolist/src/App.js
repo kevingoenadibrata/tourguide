@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, useNavigate, useLocation } from 'react-router-dom';
 import './App.css';
-import { Heart, Menu, X, User, LogOut, CircleUserRound } from 'lucide-react';
+import { Heart, Menu, X, User, LogOut, CircleUserRound, Home, ListOrdered } from 'lucide-react';
 import Community from './components/Community';
 import RestaurantList from './components/RestaurantList';
 import RestaurantDetail from './components/RestaurantDetail';
 import Login from './components/Login';
+import MyLists from './components/MyLists';
 
 function AppLayout() {
   const navigate = useNavigate();
@@ -24,6 +25,11 @@ function AppLayout() {
 
   const handleNavigateToLogin = () => {
     navigate('/login');
+    setIsDrawerOpen(false);
+  };
+
+  const handleNavigate = (path) => {
+    navigate(path);
     setIsDrawerOpen(false);
   };
 
@@ -55,6 +61,21 @@ function AppLayout() {
                 <X size={24} />
               </button>
             </div>
+
+            {/* Navigation links - shown only when logged in */}
+            {user && (
+              <nav className="drawer-nav">
+                <button className="nav-item" onClick={() => handleNavigate('/')}>
+                  <Home size={20} />
+                  <span>Home</span>
+                </button>
+                <button className="nav-item" onClick={() => handleNavigate('/my-lists')}>
+                  <ListOrdered size={20} />
+                  <span>My Lists</span>
+                </button>
+              </nav>
+            )}
+
             {/* Login/User section */}
             <div className="drawer-auth">
               {user ? (
@@ -91,6 +112,10 @@ function AppLayout() {
           <Route path="/list/:id" element={<RestaurantList />} />
           <Route path="/list/:listId/details/:restaurantId" element={<RestaurantDetail />} />
           <Route path="/login" element={<Login onLogin={handleLogin} />} />
+          <Route
+            path="/my-lists"
+            element={user ? <MyLists /> : <Login onLogin={handleLogin} />}
+          />
         </Routes>
       </main>
 
