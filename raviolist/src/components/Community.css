@@ -23,7 +23,12 @@
   display: inline-block;
   min-width: 200px;
   text-align: left;
-  transition: opacity 0.3s ease;
+  opacity: 1;
+  transition: opacity 0.15s ease;
+}
+
+.rotating-text.fading {
+  opacity: 0;
 }
 
 .hero-description {

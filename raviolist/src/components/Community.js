@@ -7,14 +7,20 @@ import { communityLists } from '../data/communityLists';
 const Community = () => {
   const navigate = useNavigate();
   const [rotatingText, setRotatingText] = useState('Foodies');
+  const [isFading, setIsFading] = useState(false);
 
   const rotatingWords = ['Foodies', 'Tourists', 'Influencers', 'Bloggers', 'Reviewers'];
 
   useEffect(() => {
     let currentIndex = 0;
     const interval = setInterval(() => {
-      currentIndex = (currentIndex + 1) % rotatingWords.length;
-      setRotatingText(rotatingWords[currentIndex]);
+      setIsFading(true);
+
+      setTimeout(() => {
+        currentIndex = (currentIndex + 1) % rotatingWords.length;
+        setRotatingText(rotatingWords[currentIndex]);
+        setIsFading(false);
+      }, 150);
     }, 1000);
 
     return () => clearInterval(interval);
@@ -28,7 +34,7 @@ const Community = () => {
     <div className="community-page">
       <div className="hero-section">
         <h1 className="hero-title">
-          A space for <span className="rotating-text">{rotatingText}</span><br />
+          A space for <span className={`rotating-text ${isFading ? 'fading' : ''}`}>{rotatingText}</span><br />
           to share their lists
         </h1>
         <p className="hero-description">
