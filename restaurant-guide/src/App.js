@@ -4,6 +4,7 @@ import { Croissant, Heart, Menu, X } from 'lucide-react';
 import CityList from './components/CityList';
 import RestaurantList from './components/RestaurantList';
 import RestaurantDetail from './components/RestaurantDetail';
+import Community from './components/Community';
 import { getRestaurantsByCity } from './data/restaurants';
 
 function App() {
@@ -42,8 +43,14 @@ function App() {
     setCurrentView('restaurants');
   };
 
-  // Render the appropriate view based on currentView state
+  // Render the appropriate view based on currentTab and currentView state
   const renderView = () => {
+    // If on Community tab, show Community page
+    if (currentTab === 'community') {
+      return <Community />;
+    }
+
+    // Otherwise show Recommendations flow (cities -> restaurants -> detail)
     switch (currentView) {
       case 'cities':
         return <CityList onSelectCity={handleSelectCity} />;
