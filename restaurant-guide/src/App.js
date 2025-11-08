@@ -10,7 +10,7 @@ import { getRestaurantsByCity } from './data/restaurants';
 
 function App() {
   // Tab state: 'recommendations' or 'community'
-  const [currentTab, setCurrentTab] = useState('recommendations');
+  const [currentTab, setCurrentTab] = useState('community');
   // Drawer state
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   // Navigation state: 'cities', 'restaurants', or 'detail'
@@ -166,21 +166,6 @@ function App() {
                 <X size={24} />
               </button>
             </div>
-            <div className="drawer-content">
-              <button
-                className={`drawer-tab ${currentTab === 'recommendations' ? 'active' : ''}`}
-                onClick={() => handleTabSelect('recommendations')}
-              >
-                Recommendations
-              </button>
-              <button
-                className={`drawer-tab ${currentTab === 'community' ? 'active' : ''}`}
-                onClick={() => handleTabSelect('community')}
-              >
-                Community
-              </button>
-            </div>
-
             {/* Login/User section */}
             <div className="drawer-auth">
               {user ? (

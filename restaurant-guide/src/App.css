@@ -133,41 +133,6 @@ body {
   background: rgba(0, 0, 0, 0.05);
 }
 
-.drawer-content {
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.drawer-tab {
-  background: transparent;
-  border: none;
-  color: #606060;
-  padding: 12px 16px;
-  font-size: 1em;
-  font-weight: 500;
-  cursor: pointer;
-  border-radius: 8px;
-  text-align: left;
-  transition: all 0.2s ease;
-  font-family: inherit;
-}
-
-.drawer-tab:hover {
-  background: rgba(0, 0, 0, 0.05);
-  color: #1a1a1a;
-}
-
-.drawer-tab.active {
-  background: #1a1a1a;
-  color: #FAFAFA;
-}
-
-.drawer-tab.active:hover {
-  background: #2a2a2a;
-}
-
 /* Auth section in drawer */
 .drawer-auth {
   margin-top: auto;
