@@ -20,7 +20,7 @@ const Community = () => {
         currentIndex = (currentIndex + 1) % rotatingWords.length;
         setRotatingText(rotatingWords[currentIndex]);
         setIsFading(false);
-      }, 150);
+      }, 500);
     }, 1000);
 
     return () => clearInterval(interval);
