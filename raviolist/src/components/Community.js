@@ -28,7 +28,9 @@ const Community = () => {
     <div className="community-page">
       <div className="hero-section">
         <h1 className="hero-title">
-          A space for <span className="rotating-text">{rotatingText}</span> to share their lists
+          A space for<br />
+          <span className="rotating-text">{rotatingText}</span><br />
+          to share their lists
         </h1>
         <p className="hero-description">
           Discover and share the best restaurant lists curated by food enthusiasts around the world. Create your own collections and inspire others to explore great dining experiences.
