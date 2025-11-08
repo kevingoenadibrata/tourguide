@@ -1,10 +1,16 @@
 import React from 'react';
 import './RestaurantList.css';
 
-const RestaurantList = ({ restaurants, onSelectRestaurant }) => {
+const RestaurantList = ({ city, restaurants, onSelectRestaurant, onBack }) => {
   return (
     <div className="restaurant-list">
-      <h2>Recommended Restaurants in San Francisco</h2>
+      <button className="back-button" onClick={onBack}>
+        ← Back to Cities
+      </button>
+
+      <h2>Restaurants in {city}</h2>
+      <p className="restaurant-count">{restaurants.length} amazing restaurants to explore</p>
+
       <div className="restaurant-grid">
         {restaurants.map((restaurant) => (
           <div

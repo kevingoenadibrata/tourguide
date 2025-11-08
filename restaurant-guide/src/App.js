@@ -1,40 +1,74 @@
 import React, { useState } from 'react';
 import './App.css';
+import CityList from './components/CityList';
 import RestaurantList from './components/RestaurantList';
 import RestaurantDetail from './components/RestaurantDetail';
-import { restaurants } from './data/restaurants';
+import { getRestaurantsByCity } from './data/restaurants';
 
 function App() {
+  // Navigation state: 'cities', 'restaurants', or 'detail'
+  const [currentView, setCurrentView] = useState('cities');
+  const [selectedCity, setSelectedCity] = useState(null);
   const [selectedRestaurant, setSelectedRestaurant] = useState(null);
+
+  const handleSelectCity = (cityName) => {
+    setSelectedCity(cityName);
+    setCurrentView('restaurants');
+  };
 
   const handleSelectRestaurant = (restaurant) => {
     setSelectedRestaurant(restaurant);
+    setCurrentView('detail');
   };
 
-  const handleBackToList = () => {
+  const handleBackToCities = () => {
+    setSelectedCity(null);
     setSelectedRestaurant(null);
+    setCurrentView('cities');
+  };
+
+  const handleBackToRestaurants = () => {
+    setSelectedRestaurant(null);
+    setCurrentView('restaurants');
+  };
+
+  // Render the appropriate view based on currentView state
+  const renderView = () => {
+    switch (currentView) {
+      case 'cities':
+        return <CityList onSelectCity={handleSelectCity} />;
+
+      case 'restaurants':
+        return (
+          <RestaurantList
+            city={selectedCity}
+            restaurants={getRestaurantsByCity(selectedCity)}
+            onSelectRestaurant={handleSelectRestaurant}
+            onBack={handleBackToCities}
+          />
+        );
+
+      case 'detail':
+        return (
+          <RestaurantDetail
+            restaurant={selectedRestaurant}
+            onBack={handleBackToRestaurants}
+          />
+        );
+
+      default:
+        return <CityList onSelectCity={handleSelectCity} />;
+    }
   };
 
   return (
     <div className="App">
       <header className="App-header">
         <h1>🍴 Restaurant Guide</h1>
-        <p>Discover the best dining experiences in your city</p>
+        <p>Discover the best dining experiences around the world</p>
       </header>
 
-      <main>
-        {selectedRestaurant ? (
-          <RestaurantDetail
-            restaurant={selectedRestaurant}
-            onBack={handleBackToList}
-          />
-        ) : (
-          <RestaurantList
-            restaurants={restaurants}
-            onSelectRestaurant={handleSelectRestaurant}
-          />
-        )}
-      </main>
+      <main>{renderView()}</main>
 
       <footer className="App-footer">
         <p>Made with ❤️ for food lovers</p>
