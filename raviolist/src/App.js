@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, useNavigate, useLocation } from 'react-router-dom';
 import './App.css';
-import { Heart, Menu, X, User, LogOut } from 'lucide-react';
+import { Heart, Menu, X, User, LogOut, CircleUserRound } from 'lucide-react';
 import Community from './components/Community';
 import RestaurantList from './components/RestaurantList';
 import RestaurantDetail from './components/RestaurantDetail';
@@ -37,7 +37,7 @@ function AppLayout() {
             <div className="header-content">
               <h1><img src="/ravioli.png" alt="ravioli" style={{ width: '28px', height: '28px', display: 'inline-block', verticalAlign: 'middle', marginRight: '5px' }} /> raviolist</h1>
               <button className="menu-button" onClick={() => setIsDrawerOpen(!isDrawerOpen)}>
-                <Menu size={24} />
+                {user ? <CircleUserRound size={24} /> : <Menu size={24} />}
               </button>
             </div>
           </header>
