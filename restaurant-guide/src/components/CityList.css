@@ -69,20 +69,15 @@
 
 .stat {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
+  gap: 8px;
 }
 
 .stat-value {
   font-size: 1.8em;
   font-weight: bold;
   line-height: 1;
-}
-
-.stat-label {
-  font-size: 0.85em;
-  opacity: 0.9;
-  margin-top: 5px;
 }
 
 .city-cuisines {

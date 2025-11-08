@@ -1,6 +1,6 @@
 import React from 'react';
 import './CityList.css';
-import { Building2, Landmark, MapPin } from 'lucide-react';
+import { Building2, Landmark, MapPin, Utensils, Star } from 'lucide-react';
 import { getCityStats } from '../data/restaurants';
 
 const CityList = ({ onSelectCity }) => {
@@ -35,11 +35,11 @@ const CityList = ({ onSelectCity }) => {
             <div className="city-stats">
               <div className="stat">
                 <span className="stat-value">{city.restaurantCount}</span>
-                <span className="stat-label">Restaurants</span>
+                <Utensils size={20} />
               </div>
               <div className="stat">
                 <span className="stat-value">{city.avgRating}</span>
-                <span className="stat-label">Avg Rating</span>
+                <Star size={20} />
               </div>
             </div>
             <div className="city-cuisines">
