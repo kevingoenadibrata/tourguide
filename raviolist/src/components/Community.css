@@ -5,7 +5,7 @@
 }
 
 .hero-section {
-  text-align: center;
+  text-align: left;
   margin-bottom: 60px;
   padding: 40px 20px;
 }
@@ -23,7 +23,7 @@
   color: #FF6B35;
   display: inline-block;
   min-width: 200px;
-  text-align: center;
+  text-align: left;
   transition: opacity 0.3s ease;
 }
 
@@ -32,7 +32,7 @@
   font-size: 1.1em;
   line-height: 1.4;
   max-width: 700px;
-  margin: 0 auto;
+  margin: 0;
 }
 
 .community-header {

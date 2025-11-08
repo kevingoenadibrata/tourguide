@@ -28,8 +28,7 @@ const Community = () => {
     <div className="community-page">
       <div className="hero-section">
         <h1 className="hero-title">
-          A space for<br />
-          <span className="rotating-text">{rotatingText}</span><br />
+          A space for <span className="rotating-text">{rotatingText}</span><br />
           to share their lists
         </h1>
         <p className="hero-description">
