@@ -7,6 +7,8 @@ import RestaurantDetail from './components/RestaurantDetail';
 import { getRestaurantsByCity } from './data/restaurants';
 
 function App() {
+  // Tab state: 'recommendations' or 'community'
+  const [currentTab, setCurrentTab] = useState('recommendations');
   // Navigation state: 'cities', 'restaurants', or 'detail'
   const [currentView, setCurrentView] = useState('cities');
   const [selectedCity, setSelectedCity] = useState(null);
@@ -66,6 +68,20 @@ function App() {
     <div className="App">
       <header className="App-header">
         <h1><Croissant size={28} style={{ display: 'inline-block', verticalAlign: 'middle', marginRight: '10px' }} /> tourguideman</h1>
+        <div className="tabs">
+          <button
+            className={`tab ${currentTab === 'recommendations' ? 'active' : ''}`}
+            onClick={() => setCurrentTab('recommendations')}
+          >
+            Recommendations
+          </button>
+          <button
+            className={`tab ${currentTab === 'community' ? 'active' : ''}`}
+            onClick={() => setCurrentTab('community')}
+          >
+            Community
+          </button>
+        </div>
       </header>
 
       <main>{renderView()}</main>
