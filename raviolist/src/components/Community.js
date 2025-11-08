@@ -21,7 +21,7 @@ const Community = () => {
         setRotatingText(rotatingWords[currentIndex]);
         setIsFading(false);
       }, 500);
-    }, 2000);
+    }, 4000);
 
     return () => clearInterval(interval);
   }, []);
