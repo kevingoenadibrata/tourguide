@@ -1,6 +1,6 @@
 import React from 'react';
 import './CityList.css';
-import { Building2, Landmark, MapPin, ChevronRight } from 'lucide-react';
+import { Building2, Landmark, MapPin } from 'lucide-react';
 import { getCityStats } from '../data/restaurants';
 
 const CityList = ({ onSelectCity }) => {
@@ -49,7 +49,6 @@ const CityList = ({ onSelectCity }) => {
                 </span>
               ))}
             </div>
-            <button className="explore-city-btn">Explore {city.name} <ChevronRight size={16} style={{ display: 'inline-block', verticalAlign: 'middle', marginLeft: '4px' }} /></button>
           </div>
         ))}
       </div>

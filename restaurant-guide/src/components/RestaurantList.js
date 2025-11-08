@@ -1,6 +1,6 @@
 import React from 'react';
 import './RestaurantList.css';
-import { ChevronLeft, ChevronRight, Star } from 'lucide-react';
+import { ChevronLeft, Star } from 'lucide-react';
 
 const RestaurantList = ({ city, restaurants, onSelectRestaurant, onBack }) => {
   return (
@@ -34,7 +34,6 @@ const RestaurantList = ({ city, restaurants, onSelectRestaurant, onBack }) => {
             <p className="restaurant-preview">
               {restaurant.review.substring(0, 100)}...
             </p>
-            <button className="view-details-btn">View Details <ChevronRight size={16} style={{ display: 'inline-block', verticalAlign: 'middle', marginLeft: '4px' }} /></button>
           </div>
         ))}
       </div>

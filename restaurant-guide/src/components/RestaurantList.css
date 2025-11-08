@@ -89,18 +89,5 @@
 .restaurant-preview {
   color: #606060;
   line-height: 1.5;
-  margin-bottom: 15px;
   font-size: 0.95em;
-}
-
-.view-details-btn {
-  background: #000000;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 0.95em;
-  font-weight: 500;
-  width: 100%;
 }
