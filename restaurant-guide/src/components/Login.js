@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Login.css';
 import { Croissant, ArrowLeft } from 'lucide-react';
 
-const Login = ({ onLogin, onBack }) => {
+const Login = ({ onLogin }) => {
+  const navigate = useNavigate();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
@@ -17,7 +19,7 @@ const Login = ({ onLogin, onBack }) => {
   return (
     <div className="login-page">
       <div className="login-container">
-        <button className="back-button" onClick={onBack}>
+        <button className="back-button" onClick={() => navigate('/')}>
           <ArrowLeft size={20} />
           Back
         </button>
