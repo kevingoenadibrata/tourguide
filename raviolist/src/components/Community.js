@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Community.css';
 import { LayoutList, MapPin } from 'lucide-react';
@@ -6,6 +6,19 @@ import { communityLists } from '../data/communityLists';
 
 const Community = () => {
   const navigate = useNavigate();
+  const [rotatingText, setRotatingText] = useState('Foodies');
+
+  const rotatingWords = ['Foodies', 'Tourists', 'Influencers', 'Bloggers', 'Reviewers'];
+
+  useEffect(() => {
+    let currentIndex = 0;
+    const interval = setInterval(() => {
+      currentIndex = (currentIndex + 1) % rotatingWords.length;
+      setRotatingText(rotatingWords[currentIndex]);
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
 
   const handleSelectList = (listId) => {
     navigate(`/list/${listId}`);
@@ -13,6 +26,15 @@ const Community = () => {
 
   return (
     <div className="community-page">
+      <div className="hero-section">
+        <h1 className="hero-title">
+          A space for <span className="rotating-text">{rotatingText}</span> to share their lists
+        </h1>
+        <p className="hero-description">
+          Discover and share the best restaurant lists curated by food enthusiasts around the world. Create your own collections and inspire others to explore great dining experiences.
+        </p>
+      </div>
+
       <div className="community-header">
         <h2>Community Lists</h2>
         <p className="community-subtitle">Discover curated restaurant collections from fellow food lovers</p>
