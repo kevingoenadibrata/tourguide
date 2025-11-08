@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Community.css';
-import { Users, ListOrdered, MapPin } from 'lucide-react';
+import { ListOrdered, MapPin } from 'lucide-react';
 import { communityLists } from '../data/communityLists';
 
 const Community = () => {
@@ -14,7 +14,7 @@ const Community = () => {
   return (
     <div className="community-page">
       <div className="community-header">
-        <h2><Users size={28} style={{ display: 'inline-block', verticalAlign: 'middle', marginRight: '10px' }} />Community Lists</h2>
+        <h2>Community Lists</h2>
         <p className="community-subtitle">Discover curated restaurant collections from fellow food lovers</p>
       </div>
 
