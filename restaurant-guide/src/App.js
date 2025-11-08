@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
-import { Utensils, Heart } from 'lucide-react';
+import { Croissant, Heart } from 'lucide-react';
 import CityList from './components/CityList';
 import RestaurantList from './components/RestaurantList';
 import RestaurantDetail from './components/RestaurantDetail';
@@ -65,8 +65,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1><Utensils size={40} style={{ display: 'inline-block', verticalAlign: 'middle', marginRight: '10px' }} /> Restaurant Guide</h1>
-        <p>Discover the best dining experiences around the world</p>
+        <h1><Croissant size={28} style={{ display: 'inline-block', verticalAlign: 'middle', marginRight: '10px' }} /> tourguideman</h1>
       </header>
 
       <main>{renderView()}</main>
