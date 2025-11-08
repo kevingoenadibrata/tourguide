@@ -4,11 +4,35 @@
   margin: 0 auto;
 }
 
+.restaurant-list .back-button {
+  background: #ecf0f1;
+  color: #2c3e50;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: 500;
+  margin-bottom: 20px;
+  transition: background 0.2s;
+}
+
+.restaurant-list .back-button:hover {
+  background: #bdc3c7;
+}
+
 .restaurant-list h2 {
   text-align: center;
   color: #333;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
   font-size: 2em;
+}
+
+.restaurant-count {
+  text-align: center;
+  color: #666;
+  margin-bottom: 30px;
+  font-size: 1.1em;
 }
 
 .restaurant-grid {
