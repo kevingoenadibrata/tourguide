@@ -27,7 +27,7 @@ const Community = () => {
           >
             <div className="list-header">
               <h3>{list.title}</h3>
-              <span className="creator">by {list.creator}</span>
+              <span className="creator">@{list.creator}</span>
             </div>
             <p className="list-description">{list.description}</p>
             <div className="list-footer">
