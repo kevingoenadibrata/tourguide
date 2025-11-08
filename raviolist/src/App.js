@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, useNavigate, useLocation } from 'react-router-dom';
 import './App.css';
-import { SquareStop, Heart, Menu, X, User, LogOut } from 'lucide-react';
+import { Heart, Menu, X, User, LogOut } from 'lucide-react';
 import Community from './components/Community';
 import RestaurantList from './components/RestaurantList';
 import RestaurantDetail from './components/RestaurantDetail';
@@ -35,7 +35,7 @@ function AppLayout() {
         <>
           <header className="App-header">
             <div className="header-content">
-              <h1><SquareStop size={28} style={{ display: 'inline-block', verticalAlign: 'middle', marginRight: '10px' }} /> raviolist</h1>
+              <h1><img src="/ravioli.png" alt="ravioli" style={{ width: '28px', height: '28px', display: 'inline-block', verticalAlign: 'middle', marginRight: '10px' }} /> raviolist</h1>
               <button className="menu-button" onClick={() => setIsDrawerOpen(!isDrawerOpen)}>
                 <Menu size={24} />
               </button>
