@@ -33,7 +33,7 @@ body {
 }
 
 .App-header h1 {
-  font-size: 2em;
+  font-size: 1.4em;
   margin-bottom: 0;
   font-weight: 700;
 }
@@ -64,7 +64,7 @@ main {
 
 @media (max-width: 768px) {
   .App-header h1 {
-    font-size: 2em;
+    font-size: 1.4em;
   }
 
   .App-header p {

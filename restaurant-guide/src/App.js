@@ -65,7 +65,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1><Croissant size={40} style={{ display: 'inline-block', verticalAlign: 'middle', marginRight: '10px' }} /> tourguideman</h1>
+        <h1><Croissant size={28} style={{ display: 'inline-block', verticalAlign: 'middle', marginRight: '10px' }} /> tourguideman</h1>
       </header>
 
       <main>{renderView()}</main>
