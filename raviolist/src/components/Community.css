@@ -42,7 +42,7 @@
 }
 
 .list-header h3 {
-  margin: 0 0 2px 0;
+  margin: 0 0 4px 0;
   font-size: 1.5em;
   font-weight: 600;
   color: #1a1a1a;
@@ -52,7 +52,6 @@
 .creator {
   color: #606060;
   font-size: 0.95em;
-  font-style: italic;
 }
 
 .list-description {
