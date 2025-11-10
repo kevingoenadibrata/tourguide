@@ -1,11 +1,9 @@
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
-const { Client } = require('@googlemaps/google-maps-services-js');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-const googleMapsClient = new Client({});
 
 // Enable CORS for all origins
 app.use(cors());
@@ -27,16 +25,27 @@ app.get('/places/search', async (req, res) => {
       return res.status(500).json({ error: 'Google Maps API key is not configured' });
     }
 
-    const response = await googleMapsClient.textSearch({
-      params: {
-        query: query,
-        key: process.env.GOOGLE_MAPS_API_KEY,
+    const response = await fetch('https://places.googleapis.com/v1/places:searchText', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Goog-Api-Key': process.env.GOOGLE_MAPS_API_KEY,
+        'X-Goog-FieldMask': 'places.displayName,places.formattedAddress,places.location,places.rating,places.userRatingCount,places.id'
       },
+      body: JSON.stringify({
+        textQuery: query
+      })
     });
 
+    if (!response.ok) {
+      const errorData = await response.json();
+      throw new Error(`Places API error: ${JSON.stringify(errorData)}`);
+    }
+
+    const data = await response.json();
+
     res.json({
-      status: response.data.status,
-      results: response.data.results,
+      places: data.places || []
     });
   } catch (error) {
     console.error('Error searching places:', error);
