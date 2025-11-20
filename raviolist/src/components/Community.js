@@ -1,45 +1,42 @@
-import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Community.css';
 import { LayoutList, MapPin } from 'lucide-react';
 import { communityLists } from '../data/communityLists';
+import hero1 from '../assets/hero-1.png';
+import hero2 from '../assets/hero-2.png';
+import hero3 from '../assets/hero-3.png';
+import hero4 from '../assets/hero-4.png';
+import hero5 from '../assets/hero-5.png';
 
 const Community = () => {
   const navigate = useNavigate();
-  const [rotatingText, setRotatingText] = useState('Foodies');
-  const [isFading, setIsFading] = useState(false);
-
-  const rotatingWords = ['Foodies', 'Tourists', 'Influencers', 'Bloggers', 'Reviewers'];
-
-  useEffect(() => {
-    let currentIndex = 0;
-    const interval = setInterval(() => {
-      setIsFading(true);
-
-      setTimeout(() => {
-        currentIndex = (currentIndex + 1) % rotatingWords.length;
-        setRotatingText(rotatingWords[currentIndex]);
-        setIsFading(false);
-      }, 500);
-    }, 4000);
-
-    return () => clearInterval(interval);
-  }, []);
 
   const handleSelectList = (listId) => {
     navigate(`/list/${listId}`);
   };
 
+  const heroImages = [hero1, hero2, hero3, hero4, hero5];
+
   return (
     <div className="community-page">
       <div className="hero-section">
         <h1 className="hero-title">
-          A space for <span className={`rotating-text ${isFading ? 'fading' : ''}`}>{rotatingText}</span><br />
-          to share their lists
+          Eat where the <span className="highlight">locals</span> eat
         </h1>
         <p className="hero-description">
           Discover and share the best restaurant lists curated by food enthusiasts around the world. Create your own collections and inspire others to explore great dining experiences.
         </p>
+
+        <div className="hero-carousel">
+          <div className="hero-carousel-track">
+            {heroImages.map((img, index) => (
+              <img key={index} src={img} alt={`Hero ${index + 1}`} className="hero-image" />
+            ))}
+            {heroImages.map((img, index) => (
+              <img key={`duplicate-${index}`} src={img} alt={`Hero ${index + 1}`} className="hero-image" />
+            ))}
+          </div>
+        </div>
       </div>
 
       <div className="community-header">

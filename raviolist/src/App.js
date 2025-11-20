@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, useNavigate, useLocation } from 'react-router-dom';
 import './App.css';
-import { Heart, Menu, X, User, LogOut, CircleUserRound, Home, LayoutList } from 'lucide-react';
+import { Menu, X, User, LogOut, CircleUserRound, Home, LayoutList } from 'lucide-react';
 import Community from './components/Community';
 import RestaurantList from './components/RestaurantList';
 import RestaurantDetail from './components/RestaurantDetail';
 import Login from './components/Login';
 import MyLists from './components/MyLists';
+import CreateList from './components/CreateList';
 
 function AppLayout() {
   const navigate = useNavigate();
@@ -137,17 +138,15 @@ function AppLayout() {
           <Route path="/list/:listId/details/:restaurantId" element={<RestaurantDetail />} />
           <Route path="/login" element={<Login onLogin={handleLogin} />} />
           <Route
+            path="/my-lists/create"
+            element={user ? <CreateList /> : <Login onLogin={handleLogin} />}
+          />
+          <Route
             path="/my-lists"
             element={user ? <MyLists /> : <Login onLogin={handleLogin} />}
           />
         </Routes>
       </main>
-
-      {!isLoginPage && (
-        <footer className="App-footer">
-          <p>Made with <Heart size={16} style={{ display: 'inline-block', verticalAlign: 'middle', margin: '0 4px' }} /> for food lovers</p>
-        </footer>
-      )}
     </div>
   );
 }
